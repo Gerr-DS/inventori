@@ -2,21 +2,21 @@ import json
 import os
 from datetime import datetime
 
-FILE_PATH = 'data_barang.json'
+FILE = 'data_barang.json'
 
 # Load data
 def load_data():
-    if os.path.exists(FILE_PATH):
-        if os.stat(FILE_PATH).st_size == 0:  # Cek apakah file kosong
+    if os.path.exists(FILE):
+        if os.stat(FILE).st_size == 0:  # Cek apakah file kosong
             return {}
-        with open(FILE_PATH, 'r') as f:
+        with open(FILE, 'r') as f:
             return json.load(f)
     return {}
 
 
 # Simpan data
 def save_data(data):
-    with open(FILE_PATH, 'w') as f:
+    with open(FILE, 'w') as f:
         json.dump(data, f, indent=4)
 
 # Login
